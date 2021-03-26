@@ -1,0 +1,13 @@
+<h2>Users List</h2>
+<button (click) = "openDialog()" class="btn btn-primary">Add User</button>
+<table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>SURNAME</th>
+            <th>EMAIL</th>
+            <th>AGE</th>
+        </tr>  
+        <app-user-item *ngFor="let user of users" [user] = "user"></app-user-item>
+</table>
+

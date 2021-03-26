@@ -1,0 +1,44 @@
+  <h2 mat-dialog-title>{{data? 'Update' : 'Create'}}
+    <button class="btn" style="float: right;" (click)="close()">x</button>
+  </h2>
+    
+    <div class="form-group">
+      <label for="nameInput">Name</label>
+      <input type="text"
+        id="nameInput"
+        class="form-control"
+        placeholder="ivan"
+        [(ngModel)]="newUser.name"
+        name="name">
+    <div class="form-group">
+      <label for="surnameInput">Surname</label>
+      <input type="text"
+        id="surnameInput"
+        class="form-control"
+        placeholder="petrenko"
+        [(ngModel)]="newUser.surname"
+        name="surname">
+    </div>
+    <div class="form-group">
+      <label for="nameInput">Email</label>
+      <input type="text"
+        id="emailInput"
+        class="form-control"
+        placeholder="example@mail.com"
+        [(ngModel)]="newUser.email"
+        name="email">
+    </div>
+    <div class="form-group">
+      <label for="nameInput">Age</label>
+      <input type="number"
+        id="AgeInput"
+        class="form-control"
+        placeholder="25"
+        [(ngModel)]="newUser.age"
+        name="age">
+    </div>
+    <button class="btn btn-success" (click)="add(newUser)">
+      {{data? 'Save' : 'Add'}}
+    </button>
+  
+ 
