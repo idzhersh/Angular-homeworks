@@ -1,6 +1,8 @@
-import { Component, Inject, Input, OnInit} from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { User } from '../user';
+import { FORM_ACTION_TOKEN } from '../constants/form.constants';
+import { ActionInterface} from '../interfaces/action';
+import { User } from '../interfaces/user';
 import { UserService } from '../user.service';
 
 @Component({
@@ -17,22 +19,24 @@ export class ModalformComponent implements OnInit{
      age: 0
    };
 
+   formActions: ActionInterface;
+
   constructor(  
     public dialogRef: MatDialogRef<ModalformComponent>,
     public userService: UserService,
-    @Inject (MAT_DIALOG_DATA) public data){}
+    @Inject (MAT_DIALOG_DATA) public data,
+    @Inject(FORM_ACTION_TOKEN) private config: {[name: string]: ActionInterface}){}
 
     ngOnInit() {
-      this.setUser();
+      this.setConfig();
     }
 
-    close() {
-      this.dialogRef.close();
-    }
-
-    setUser(){
+    setConfig(){
       if(this.data){
+         this.formActions = this.config.edit;
          this.newUser = {...this.data.user};
+      }else {
+         this.formActions = this.config.add;
       }
     }
 
@@ -54,6 +58,10 @@ export class ModalformComponent implements OnInit{
       email: '',
       age: 0
     }
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 }
 

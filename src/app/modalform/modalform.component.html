@@ -1,4 +1,4 @@
-  <h2 mat-dialog-title>{{data? 'Update' : 'Create'}}
+  <h2 mat-dialog-title>{{formActions.header}}
     <button class="btn" style="float: right;" (click)="close()">x</button>
   </h2>
     
@@ -38,7 +38,7 @@
         name="age">
     </div>
     <button class="btn btn-success" (click)="add(newUser)">
-      {{data? 'Save' : 'Add'}}
+      {{formActions.button}}
     </button>
   
  

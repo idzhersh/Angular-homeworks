@@ -1,8 +1,9 @@
 import { Component, Input} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalformComponent } from '../../modalform/modalform.component';
-import { User } from '../../user';
-import { UserService } from '../../user.service';
+import { User } from '../../interfaces/user';
+import { UserService } from 'src/app/user.service';
+
 
 
 @Component({

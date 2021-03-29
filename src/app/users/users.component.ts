@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { ModalformComponent } from '../modalform/modalform.component';
-import { User } from '../user';
+import { User } from '../interfaces/user';
 import { UserService } from '../user.service';
 
 @Component({
