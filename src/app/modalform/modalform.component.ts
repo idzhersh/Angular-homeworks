@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit} from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FORM_ACTION_TOKEN } from '../constants/form.constants';
 import { ActionInterface} from '../interfaces/action';
 import { User } from '../interfaces/user';
@@ -14,14 +14,14 @@ export class ModalformComponent implements OnInit{
 
   newUser: User = {
      name: '',
-     surname: '', 
+     surname: '',
      email: '',
      age: 0
    };
 
    formActions: ActionInterface;
 
-  constructor(  
+  constructor(
     public dialogRef: MatDialogRef<ModalformComponent>,
     public userService: UserService,
     @Inject (MAT_DIALOG_DATA) public data,
@@ -42,22 +42,22 @@ export class ModalformComponent implements OnInit{
 
   add(user: User){
     if(this.data){
-      this.userService.editUsers(user);
+      this.userService.edit(user);
       this.dialogRef.close();
     }else{
-       this.userService.addUser(user);
+       this.userService.add(user);
       this.clearForm();
       this.dialogRef.close();
-    } 
+    }
   }
 
   clearForm() {
     this.newUser = {
       name: '',
-      surname: '', 
+      surname: '',
       email: '',
       age: 0
-    }
+    };
   }
 
   close() {

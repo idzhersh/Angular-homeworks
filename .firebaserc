@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "contacts-ng-37a16": {
+      "hosting": {
+        "contacts": [
+          "contacts-ng-37a16"
+        ]
+      }
+    }
+  }
+}

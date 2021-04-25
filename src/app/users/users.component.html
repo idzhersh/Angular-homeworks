@@ -1,5 +1,9 @@
+
 <h2>Users List</h2>
-<button (click) = "openDialog()" class="btn btn-primary">Add User</button>
+<a routerLink="">HOMEPAGE</a><br>
+<app-filter #userFilter></app-filter>
+<button (click)="openFormModal()" style="margin: 0 10px 0 15% " class="btn btn-primary">Create1</button>
+<button (click) = "openDialog()" class="btn btn-primary">Create2</button>
 <table>
         <tr>
             <th>ID</th>
@@ -8,6 +12,10 @@
             <th>EMAIL</th>
             <th>AGE</th>
         </tr>  
-        <app-user-item *ngFor="let user of users" [user] = "user"></app-user-item>
+        <app-user-item *ngFor="let user of users | filterUsers : userFilter.searchText : userFilter.property"  [user] = "user"></app-user-item>
 </table>
+<br>
+<br>
+<br>
+
 

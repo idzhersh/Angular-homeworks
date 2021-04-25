@@ -1,0 +1,46 @@
+
+<div class="modal-header">
+    <h4 class="modal-title">Create</h4>
+    <button type="button" class="close" aria-label="Close"
+     (click)="activeModal.dismiss('Cross click')">x</button>
+  </div>
+  <form
+    [formGroup] = "myForm"
+    (ngSubmit)="submitForm()">
+      <div class="container">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+            class="form-control"
+            formControlName="name" autocomplete="off"/>
+            <span class="error" *ngIf="name.invalid && name.touched">Name is required</span>
+        </div>
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input type="text" 
+            class="form-control"
+            formControlName="surname" />
+            <span class="error" *ngIf="name.invalid && name.touched">Surname is required</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" 
+            class="form-control"
+            formControlName="email" />
+            <span class="error" *ngIf="name.invalid && name.touched">Email is required</span>
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" 
+              class="form-control"
+              formControlName="age"/>
+              <span class="error" *ngIf="name.invalid && name.touched">Age is required</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success"
+        [disabled]="!myForm.valid">
+        Create
+      </button>
+    </div>
+  </form>
